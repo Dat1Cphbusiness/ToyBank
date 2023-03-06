@@ -18,7 +18,6 @@ public class Bank {
 
     public void displayCustomers(){
         for (Customer c:customers  ) {
-
             System.out.println(c);
         }
     }

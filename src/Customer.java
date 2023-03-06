@@ -18,6 +18,7 @@ public class Customer {
         return this.name;
     }
     public String toString(){
+        //todo: make sure that the account reference has been initialized or you will see a nullpointerException when this runs
         return getName()+ ": "+ this.account.getBalance();
 
     }
