@@ -1,27 +1,37 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
+class Bank
+class TextUI
+class Customer
+class Account
 
-List <|-- AbstractList
-Collection <|-- AbstractCollection
+Main *-- TextUI
+Main *-- Bank
+Bank *-- Customer
+Customer *-- Account
 
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
+Main : + main()
 
-class ArrayList {
-Object[] elementData
-size()
-}
+Customer : -int id
+Customer : -String name
+Customer : -Account account
+Customer : -{static} int counter
+Customer : +Customer(String name)
+Customer : +int getId()
+Customer : +String getName()
+Customer : +String toString()
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
-}
+Account : - int balance
+Account : + int getBalance()
+Account : + void setBalance(int amount)
 
+
+Bank : - ArrayList<Customer> customers
+Bank : + int customerLimit
+Bank : + void registerCustomer(String name)
+Bank : + void displayCustomers()
+
+TextUI : + String getInput(String msg)
+TextUI : - Scanner scanner
 @enduml
